@@ -5,6 +5,10 @@
     font-family: sans-serif;
 }
 
+i:hover {
+    cursor: pointer;
+}
+
 .clearfix:after {
     content: "";
     display: table;
@@ -26,11 +30,13 @@
 #text-sec {
     font-size: 12px;
     font-weight: bold;
-    color: #66667a
+    color: #66667a;
 }
 
 #text-mess {
-
+    font-size: 12px;
+    font-weight: bold;
+    color: black;
 }
 
 .container-green {
@@ -95,6 +101,7 @@
     border-left: 1px solid #d0d3d2;
 }
 
+
 .icon-top-rig-lef {
     width: 15%;
     height: 100%;
@@ -135,6 +142,10 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
+}
+
+.top-right-due p:nth-child(2) {
+    text-decoration: underline;
 }
 
 .sched-left {
@@ -281,4 +292,52 @@
 
 .form-lat i {
     font-size: 25px;
+}
+
+.message {
+    width: 100%;
+    height: 80px;
+
+
+}
+
+.gabbia {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.box-message {
+    width: 20%;
+    height: 90%;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+}
+
+.ora-messaggio {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: 8px;
+    font-weight: bold;
+    padding: 2px;
+}
+
+#sent {
+    background-color: #3fb530;
+    position: relative;
+    left: 525px;
+    /* float: right; NON LO PRENDE */
+
+}
+
+#received {
+    background-color: white;
+
 }
