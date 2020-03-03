@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: sans-serif;
 }
 
 .clearfix:after {
@@ -15,6 +16,19 @@
     height: 100vh;
     background-color: #d0d3d2;
     position: relative;
+}
+
+#text-princ {
+    font-size: 16px;
+}
+
+#text-sec {
+    font-size: 14px;
+    color: #66667a
+}
+
+#text-mess {
+
 }
 
 .container-green {
@@ -38,53 +52,147 @@
     background-color: #eeeeee;
 }
 
+.sched-top i {
+    font-size: 30px;
+    color: #c6bebe;
+}
+
+.sched-top .fa-user-circle {
+    font-size: 50px;
+}
+
 .sched-top-left {
     width: 33.33%;
     height: 100%;
     float: left;
-    border: 1px solid black;
+
+}
+
+.icon-top-lef {
+    width: 20%;
+    height: 100%;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon-top-rig {
+    height: 100%;
+    width: 35%;
+    float: right;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .sched-top-right {
     width: 66.66%;
     float: left;
     height: 100%;
-    border: 1px solid black;
+    border-left: 1px solid #d0d3d2;
+}
+
+.top-right-uno {
+    float: left;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+}
+
+.top-right-uno i {
+    font-size: 35px;
+
+}
+
+.top-right-due {
+    height: 100%;
+    float: left;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .sched-left {
     width: 33.33%;
     height: 85%;
     background-color: white;
-    border-right: 1px solid gray;
+    border-right: 1px solid #c7c7c7;
     float: left;
 }
 
 .sch-lef-up {
     height: 15%;
-    border: 1px solid black;
+    background-color: #2196f3;
 }
 
-.lef-up-head {
-    height: 100%;
-    border: 1px solid black;
-}
-
-.lef-up-due {
-    width: 100%;
-    height: 25%;
-    border: 1px solid black;
+.lef-up-not {
+    width: 409px;
+    height: 10%;
+    border: 1px solid #c7c7c7;
     display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: #eeeeee;
+    position: absolute;
+}
+
+.lef-up-not form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+input[type=text] {
+  width: 80%;
+  height: 70%;;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 10px;
+  background-color: white;
+  font-weight: bold;
+
 }
 
 .sch-lef-down {
     height: 85%;
-    overflow-y: auto;
+    overflow-y: scroll;
+
 }
 
 .box-mess {
     height: 20%;
-    border: 1px solid black;
+    border: 1px solid #c7c7c7;
+}
+
+.mess-left {
+    width: 20%;
+    height: 100%;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mess-left i {
+    font-size: 50px;
+}
+
+.mess-right {
+    width: 80%;
+    height: 100%;
+    float: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
 }
 
 .sched-right {
@@ -96,7 +204,7 @@
 
 .rig-head {
     height: 70.63px;
-    border: 1px solid black;
+    border: 1px solid #c7c7c7;
 }
 
 .rig-main {
@@ -109,7 +217,7 @@
 .rig-foarm {
     width: 100%;
     height: 15%;
-    border: 1px solid black;
+    border-left: 1px solid #c7c7c7;
     float: left;
     background-color: #e2e2e1;
 }
