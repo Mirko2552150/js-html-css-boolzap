@@ -20,10 +20,12 @@
 
 #text-princ {
     font-size: 16px;
+    font-weight: bold;
 }
 
 #text-sec {
-    font-size: 14px;
+    font-size: 12px;
+    font-weight: bold;
     color: #66667a
 }
 
@@ -68,7 +70,7 @@
 
 }
 
-.icon-top-lef {
+.icon-top-lef-lef {
     width: 20%;
     height: 100%;
     float: left;
@@ -77,7 +79,7 @@
     align-items: center;
 }
 
-.icon-top-rig {
+.icon-top-lef-rig {
     height: 100%;
     width: 35%;
     float: right;
@@ -91,6 +93,25 @@
     float: left;
     height: 100%;
     border-left: 1px solid #d0d3d2;
+}
+
+.icon-top-rig-lef {
+    width: 15%;
+    height: 100%;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon-top-rig-rig {
+    width: 30%;
+    height: 100%;
+    float: right;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
 }
 
 .top-right-uno {
@@ -149,7 +170,7 @@
 
 }
 
-input[type=text] {
+.lef-up-not input[type=text] {
   width: 80%;
   height: 70%;;
   box-sizing: border-box;
@@ -169,7 +190,12 @@ input[type=text] {
 
 .box-mess {
     height: 20%;
-    border: 1px solid #c7c7c7;
+    border: 1px solid #cdcdcd;
+}
+
+.box-mess:hover {
+    background-color: #cdcdcd;
+    cursor: pointer;
 }
 
 .mess-left {
@@ -220,4 +246,39 @@ input[type=text] {
     border-left: 1px solid #c7c7c7;
     float: left;
     background-color: #e2e2e1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.form-lat {
+    width: 10%;
+    height: 100%;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-due {
+    width: 80%;
+    height: 100%;
+    float: left;
+}
+
+.rig-foarm .messaggio {
+    width: 90%;
+    height: 90%;
+    border-radius: 5px;
+    position: relative;
+    border: none;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+.form-lat i {
+    font-size: 25px;
 }
