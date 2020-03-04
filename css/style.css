@@ -19,6 +19,7 @@ i:hover {
     width: 100vw;
     height: 100vh;
     background-color: #d0d3d2;
+    background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fuser-images.githubusercontent.com%2F15075759%2F28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png&f=1&nofb=1');
     position: relative;
 }
 
@@ -39,9 +40,20 @@ i:hover {
     color: black;
 }
 
+#dim-avatats {
+    width: 60px;
+    height: 60px;
+}
+
+#dim-avatatsUno {
+    width: 70px;
+    height: 70px;
+}
+
 .container-green {
     height: 200px;
     background-color: #009284;
+    background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcommunity.thunkable.com%2Fuploads%2Fdefault%2Foriginal%2F3X%2F5%2Ff%2F5f775f4bfc828d774d15670be4f5e69fe8331e1c.jpeg&f=1&nofb=1');
 }
 
 .schedule {
@@ -103,12 +115,16 @@ i:hover {
 
 
 .icon-top-rig-lef {
-    width: 15%;
+    width: 32%;
     height: 100%;
     float: left;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.text-user {
+    padding-left: 10px;
 }
 
 .icon-top-rig-rig {
@@ -236,7 +252,7 @@ i:hover {
     width: 66.66%;
     height: 85%;
     float: left;
-    background-image: url('https://i.pinimg.com/236x/85/70/f6/8570f6339d3189c96e340d47a581d3b8.jpg');
+    background-image: url('https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fimg3.todoiphone.net%2Fwp-content%2Fuploads%2F2014%2F03%2FWhatsApp-Wallpaper-39.jpg&f=1&nofb=1');
 }
 
 .rig-head {
@@ -280,7 +296,7 @@ i:hover {
 
 .rig-foarm .messaggio {
     width: 90%;
-    height: 90%;
+    height: 70%;
     border-radius: 5px;
     position: relative;
     border: none;
@@ -311,8 +327,8 @@ i:hover {
 
 .box-message {
     width: 20%;
-    height: 90%;
-    border-radius: 5px;
+    height: 70%;
+    border-radius: 8px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -326,7 +342,7 @@ i:hover {
     right: 0;
     font-size: 8px;
     font-weight: bold;
-    padding: 2px;
+    padding: 4px;
 }
 
 #sent {
