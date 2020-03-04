@@ -21,13 +21,11 @@ i:hover {
     background-color: #d0d3d2;
     background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fuser-images.githubusercontent.com%2F15075759%2F28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png&f=1&nofb=1');
     position: relative;
-    
+
 }
 
 /* background-image:
-linear-gradient(to bottom, #009688 0px, #009688 15vh, #DDDBD1 15vh, #D2DBDC 100% )
-il 15% ha un colore il restante un alteo
- */
+linear-gradient(to bottom, #009688 0px, #009688 15vh, #DDDBD1 15vh, #D2DBDC 100% ) il 15% ha un colore il restante un alteo */
 
 .text-princ {
     font-size: 16px;
