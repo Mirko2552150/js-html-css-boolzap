@@ -21,31 +21,37 @@ i:hover {
     background-color: #d0d3d2;
     background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fuser-images.githubusercontent.com%2F15075759%2F28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png&f=1&nofb=1');
     position: relative;
+    
 }
 
-#text-princ {
+/* background-image:
+linear-gradient(to bottom, #009688 0px, #009688 15vh, #DDDBD1 15vh, #D2DBDC 100% )
+il 15% ha un colore il restante un alteo
+ */
+
+.text-princ {
     font-size: 16px;
     font-weight: bold;
 }
 
-#text-sec {
+.text-sec {
     font-size: 12px;
     font-weight: bold;
     color: #66667a;
 }
 
-#text-mess {
+.text-mess {
     font-size: 12px;
     font-weight: bold;
     color: black;
 }
 
-#dim-avatats {
+.dim-avatats {
     width: 60px;
     height: 60px;
 }
 
-#dim-avatatsUno {
+.dim-avatatsUno {
     width: 70px;
     height: 70px;
 }
@@ -63,6 +69,9 @@ i:hover {
     position: absolute;
     top: 100px;
     left: 20vh;
+    border-left: 1px solid #eeeeee;
+    border-top: 1px solid #eeeeee;
+    border-bottom: 1px solid #eeeeee;
 }
 
 .sched-top {
@@ -113,7 +122,6 @@ i:hover {
     border-left: 1px solid #d0d3d2;
 }
 
-
 .icon-top-rig-lef {
     width: 32%;
     height: 100%;
@@ -158,6 +166,7 @@ i:hover {
     display: flex;
     justify-content: center;
     flex-direction: column;
+
 }
 
 .top-right-due p:nth-child(2) {
@@ -245,6 +254,17 @@ i:hover {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    position: relative;
+    color:
+
+}
+.mess-right:nth-child(2):after {
+    content: "  18:53";
+    font-size: 10px;
+    font-weight: bold;
+    position: absolute;
+    right: 5px;;
+    color: #c7c7c7;
 
 }
 
@@ -297,7 +317,7 @@ i:hover {
 .rig-foarm .messaggio {
     width: 90%;
     height: 70%;
-    border-radius: 5px;
+    border-radius: 20px;
     position: relative;
     border: none;
     left: 50%;
@@ -345,15 +365,14 @@ i:hover {
     padding: 4px;
 }
 
-#sent {
+.sent {
     background-color: #3fb530;
     position: relative;
     left: 525px;
-    /* float: right; NON LO PRENDE */
 
 }
 
-#received {
+.received {
     background-color: white;
 
 }
