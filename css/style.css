@@ -193,6 +193,7 @@ linear-gradient(to bottom, #009688 0px, #009688 15vh, #DDDBD1 15vh, #D2DBDC 100%
     align-items: center;
     background-color: #eeeeee;
     position: absolute;
+    z-index: 999;
 }
 
 .lef-up-not form {
@@ -380,3 +381,7 @@ input[type=testo] {
     background-color: white;
 
 }
+
+.template {
+    display: none;
+}1
