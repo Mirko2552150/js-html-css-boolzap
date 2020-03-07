@@ -1,4 +1,3 @@
-//FUNZIONA CORRETTAMENTE
 //cambio icona utlizizzando il CSS del messaggio invio // usiamo la concatenazione
 $("#mexsent").focus(function(){ // funzione FOCUS E BLUR solo x INPUT
     $(".form-lat-dx i").toggleClass("fas fa-microphone-alt fas fa-paper-plane"); // selezioni il div e le tue icone, toggle class rimuove un icona e ne inserisce un altra senza FONT AWONSE
@@ -7,10 +6,9 @@ $("#mexsent").focus(function(){ // funzione FOCUS E BLUR solo x INPUT
     $(".form-lat-dx i").toggleClass("fas fa-paper-plane fas fa-microphone-alt");
 });
 
-
 $(".form-lat-dx").click(function(){ // al click su incona MIC?
     invioMessaggio(); // INVOCO FUNZIONE
-    invioAutoMessaggio();
+
 });
 
 $("#mexsent").keypress(function(event){ // se siamo dentro l'INPUT e clicclo enter allora fai funzione INVIA MESSAGGIO
@@ -19,8 +17,6 @@ $("#mexsent").keypress(function(event){ // se siamo dentro l'INPUT e clicclo ent
     }
 });
 
-
-//FUNZIONA
 $("#cerca-contatti").keyup(function(event){ //alla pressione accatra un evento
     var carattereFiltro = $(this).val().toLowerCase(); // prendo il valore del selezionato
     console.log(carattereFiltro); // vediamo quello che clikkiamo sulla console
@@ -40,10 +36,9 @@ $("#cerca-contatti").keyup(function(event){ //alla pressione accatra un evento
     });
 });
 
-
-//FUNZIONA CORRETTAMENTE
 $(".icon-top-lef-rig .fa-search").click(function(){ // al click scende la tendia ricerca sopra i contatti
     $(".lef-up-not").slideToggle();
+    $('.sch-lef-down').toggleClass("active");
 });
 
 var today = new Date(); // stringhe per inserire la data
@@ -52,26 +47,32 @@ var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds(
 
 //FUNZIONI
 
-function invioMessaggio(function() {
-    var nomeInput = $('.form-due input').val(); // prendo il valore dell'INPUT
-    $('#mexsent').val(''); // cancello valore INPUT
-    var templateMessaggio = $('.template .message').clone(); // clono il filgio di template
-    templateMessaggio.find('.text-mess').text(nomeInput); // scrivo il valore dell INPUT dentro al testo del messaggio
-    templateMessaggio.find(".box-message").addClass("sent");
-    templateMessaggio.find('.ora-messaggio').text(time); // aggiungo orario all'interno dello spazio relativo
-    $('.rig-main.active').append(templateMessaggio); // inserisco il div messaggio all'interno del MAIN assieme a tutti gli altri
-});
-
-function invioAutoMessaggio(function(){
-    setTimeout(function(){ // il messaggio auto parte dopo 3000 ms
+function invioMessaggio(){
+    var nomeInput = $('#mexsent').val(); // prendo il valore dell'INPUT
+    if (nomeInput.trim().length > 0) { // trim cancella spazi vuoti se testo del massaggio è maggiore di zero fai parite il messaggio
+        $('#mexsent').val(''); // cancello valore INPUT
         var templateMessaggio = $('.template .message').clone(); // clono il filgio di template
-        messaggioBoot.find('.text-mess').text("Ciao! Ora non posso risponderti, ci sentiamo dopo");
-        templateMessaggio.find(".box-message").addClass("received");
-        messaggioBoot.find('.ora-messaggio').text(time);
-        $('.rig-main.active').append(messaggioBoot);
-    }, 1000);
+        templateMessaggio.find('.text-mess').text(nomeInput); // scrivo il valore dell INPUT dentro al testo del messaggio
+        templateMessaggio.find(".box-message").addClass("sent");
+        templateMessaggio.find('.ora-messaggio').text(time); // aggiungo orario all'interno dello spazio relativo
+        $('.rig-main.active').append(templateMessaggio); // inserisco il div messaggio all'interno del MAIN assieme a tutti gli altri
 
-});
+        setTimeout(function(){ // il messaggio auto parte dopo 1000 ms
+            var templateMessaggioAuto = $('.template .message').clone(); // clono il figlio di template
+            templateMessaggioAuto.find('.text-mess').text("Ciao! Ora non posso risponderti, ci sentiamo dopo");
+            templateMessaggioAuto.find(".box-message").addClass("received");
+            templateMessaggioAuto.find('.ora-messaggio').text(time);
+            $('.rig-main.active').append(templateMessaggioAuto);
+        }, 1000);
+    } else {
+        console.log("non hai scritto testo");
+    }
+};
+
+function scroll() {
+    var pixelScroll = $('rig-main.active').height(); // associo var ad altezza DIV messaggi
+    $('.rig-main.active').scrollTop(pixelScroll); // scrolla degli stessi pixel verso il basso
+}
 
 // inizio selezione scheda per contatto
 // creare un indice ad ogni elemento (div che contengono i contatti)

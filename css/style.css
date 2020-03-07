@@ -230,6 +230,10 @@ linear-gradient(to bottom, #009688 0px, #009688 15vh, #DDDBD1 15vh, #D2DBDC 100%
 
 }
 
+.sch-lef-down.active {
+    height: 75%;
+}
+
 .box-mess {
     height: 20%;
     border: 1px solid #cdcdcd;
