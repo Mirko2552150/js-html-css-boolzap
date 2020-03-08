@@ -8,6 +8,7 @@ $("#mexsent").focus(function(){ // funzione FOCUS E BLUR solo x INPUT
 
 $(".form-lat-dx").click(function(){ // al click su incona MIC?
     invioMessaggio(); // INVOCO FUNZIONE
+     $('.rig-main.active').scroll();
 
 });
 
@@ -41,6 +42,37 @@ $(".icon-top-lef-rig .fa-search").click(function(){ // al click scende la tendia
     $('.sch-lef-down').toggleClass("active");
 });
 
+//FRECCETTE INTERNE MESSAGGI
+$(".box-message").mouseenter(function(){
+    $(this).find(".arrow-message").slideDown();
+});
+$(".box-message").mouseleave(function(){
+    $(this).find(".arrow-message").slideUp();
+});
+
+$(".arrow-message").click(function(){
+    $(this).find(".delete-message").slideToggle();
+})
+
+
+// tasto bell
+
+$(".fa-bell-slash, .notif").click(function(){
+    $(".fa-bell-slash").hide();
+    $(".fa-bell").show();
+    $(".notif").hide();
+    $(".notif-acti").show();
+
+});
+
+$(".fa-bell, .notif-acti").click(function(){
+    $(".fa-bell").hide();
+    $(".fa-bell-slash").show();
+    $(".notif-acti").hide();
+    $(".notif").show();
+
+});
+
 var today = new Date(); // stringhe per inserire la data
 var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
 var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
@@ -72,6 +104,7 @@ function invioMessaggio(){
 function scroll() {
     var pixelScroll = $('rig-main.active').height(); // associo var ad altezza DIV messaggi
     $('.rig-main.active').scrollTop(pixelScroll); // scrolla degli stessi pixel verso il basso
+
 }
 
 // inizio selezione scheda per contatto
