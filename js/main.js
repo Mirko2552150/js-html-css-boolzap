@@ -53,7 +53,7 @@ $(document).on('click', '.box-message', function(){
     $(this).find(".delete-message").slideToggle();
 });
 
-// tasto bell
+// TASTO CAMPANELLA
 $(".fa-bell-slash, .notif").click(function(){
     $(".fa-bell-slash").hide();
     $(".fa-bell").show();
@@ -68,6 +68,40 @@ $(".fa-bell, .notif-acti").click(function(){
     $(".notif-acti").hide();
     $(".notif").show();
 });
+
+
+// INIZIO SELEZIONE CONTATTI CON RELATIVI MAIN CHAT
+
+$('.box-mess').click(function(){ // seleziono click sui contenitore dei contatti
+    var utenteSelezionato = $(this).data('codice-utente'); // visto in classe, l'utente è quello selezionato con il suo relativo codice "data"
+    console.log(utenteSelezionato); // log utente
+    $('.rig-main').each(function(){ // ciclo su tutti i contenitori di CHAT
+        if ($(this).data('codice-utente') == utenteSelezionato) { // se un contenitore combacia
+            $('.rig-main').removeClass('active'); // faccio sparire active da tutti i contenitori
+            $(this).addClass('active'); // lo aggiungo su quello selezionato (THIS)
+        }
+    })
+});
+
+
+
+
+
+
+// faccio sparire active da tutti i contenitori
+// lo aggiungo su quello selezionato (THIS)
+$("box-mess").click(function(){ // seleziono click sui contenitore dei contatti
+    var utenteSelezionato = $(this).data("codiceUtente");   // visto in classe, l'utente è quello selezionato con il suo relativo codice "data"
+    console.log(utenteSelezionato); // log utente
+    $(".rig-main").each(function(){ // ciclo su tutti i contenitori di CHAT
+        if ((this).data("codiceUtente") == utenteSelezionato) { // se un contenitore combacia
+            $(".rig-main").remuveClass("active"); // faccio sparire active da tutti i contenitori
+            $(this).addClass("active"); // lo aggiungo su quello selezionato (THIS)
+        }
+    });
+});
+
+
 
 var today = new Date(); // stringhe per inserire la data
 var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
