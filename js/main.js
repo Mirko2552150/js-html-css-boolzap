@@ -8,8 +8,11 @@ $("#mexsent").focus(function(){ // funzione FOCUS E BLUR solo x INPUT
 
 $(".form-lat-dx").click(function(){ // al click su incona MIC?
     invioMessaggio(); // INVOCO FUNZIONE
-     $('.rig-main.active').scroll();
+});
 
+$(".icon-top-lef-rig .fa-search").click(function(){ // al click scende la tendia ricerca sopra i contatti
+    $(".lef-up-not").slideToggle();
+    $('.sch-lef-down').toggleClass("active");
 });
 
 $("#mexsent").keypress(function(event){ // se siamo dentro l'INPUT e clicclo enter allora fai funzione INVIA MESSAGGIO
@@ -37,26 +40,20 @@ $("#cerca-contatti").keyup(function(event){ //alla pressione accatra un evento
     });
 });
 
-$(".icon-top-lef-rig .fa-search").click(function(){ // al click scende la tendia ricerca sopra i contatti
-    $(".lef-up-not").slideToggle();
-    $('.sch-lef-down').toggleClass("active");
-});
+
 
 //FRECCETTE INTERNE MESSAGGI
-$(".box-message").mouseenter(function(){
+$(document).on('mouseenter', '.box-message', function(){ // analizza tutto il documento, ON (accadere di un evento scatena una funzione, dove tra le vorgolette)
     $(this).find(".arrow-message").slideDown();
 });
-$(".box-message").mouseleave(function(){
+$(document).on('mouseleave', '.box-message', function(){
     $(this).find(".arrow-message").slideUp();
 });
-
-$(".arrow-message").click(function(){
+$(document).on('click', '.box-message', function(){
     $(this).find(".delete-message").slideToggle();
-})
-
+});
 
 // tasto bell
-
 $(".fa-bell-slash, .notif").click(function(){
     $(".fa-bell-slash").hide();
     $(".fa-bell").show();
@@ -70,7 +67,6 @@ $(".fa-bell, .notif-acti").click(function(){
     $(".fa-bell-slash").show();
     $(".notif-acti").hide();
     $(".notif").show();
-
 });
 
 var today = new Date(); // stringhe per inserire la data
@@ -88,13 +84,14 @@ function invioMessaggio(){
         templateMessaggio.find(".box-message").addClass("sent");
         templateMessaggio.find('.ora-messaggio').text(time); // aggiungo orario all'interno dello spazio relativo
         $('.rig-main.active').append(templateMessaggio); // inserisco il div messaggio all'interno del MAIN assieme a tutti gli altri
-
+        scroll() // infine scrolla verso il basso
         setTimeout(function(){ // il messaggio auto parte dopo 1000 ms
             var templateMessaggioAuto = $('.template .message').clone(); // clono il figlio di template
             templateMessaggioAuto.find('.text-mess').text("Ciao! Ora non posso risponderti, ci sentiamo dopo");
             templateMessaggioAuto.find(".box-message").addClass("received");
             templateMessaggioAuto.find('.ora-messaggio').text(time);
             $('.rig-main.active').append(templateMessaggioAuto);
+            scroll() // infine scrolla verso il basso
         }, 1000);
     } else {
         console.log("non hai scritto testo");
@@ -102,7 +99,7 @@ function invioMessaggio(){
 };
 
 function scroll() {
-    var pixelScroll = $('rig-main.active').height(); // associo var ad altezza DIV messaggi
+    var pixelScroll = $('.rig-main.active').height(); // associo var ad altezza DIV messaggi
     $('.rig-main.active').scrollTop(pixelScroll); // scrolla degli stessi pixel verso il basso
 
 }
