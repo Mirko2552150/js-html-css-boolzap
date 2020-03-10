@@ -22,6 +22,7 @@ $("#mexsent").keypress(function(event){ // se siamo dentro l'INPUT e clicclo ent
     }
 });
 
+// FILTRO CONTATTI
 $("#cerca-contatti").keyup(function(event){ //alla pressione accatra un evento
     var carattereFiltro = $(this).val().toLowerCase(); // prendo il valore del selezionato
     console.log(carattereFiltro); // vediamo quello che clikkiamo sulla console
@@ -53,14 +54,13 @@ $(document).on('click', '.box-message', function(){
 });
 
 //CANCELLA Messaggio
-
 $(document).on('click', '.del-mess.due', function(){ // mi permette di cancellare anchei messaggi creati
     var messaggioDaCancellare = $(this).parentsUntil(".rig-main.active"); // seleziono dal div clicckato al figlio di .rig-main (tutto il messaggio)
     console.log(messaggioDaCancellare);
     var templateMessaggioVuoto = $('.cancella').clone(); // clono il template vuoto da sovrascrivere OK
     console.log(templateMessaggioVuoto);
     $(messaggioDaCancellare).html(templateMessaggioVuoto); // sovrascrivo il messaggio da cancellare con quello vuoto
-
+    
 });
 
 // TASTO CAMPANELLA
@@ -79,9 +79,14 @@ $(".fa-bell, .notif-acti").click(function(){
     $(".notif").show();
 });
 
+$(".box-mess").click(function(){
+    $(".box-mess").removeClass("background");
+    $(this).addClass("background");
+
+});
+
 
 // INIZIO SELEZIONE CONTATTI CON RELATIVI MAIN CHAT
-
 $('.box-mess').click(function(){ // seleziono click sui contenitore dei contatti
     var utenteSelezionato = $(this).data('codice-utente'); // visto in classe, l'utente è quello selezionato con il suo relativo codice "data"
     var immagineUtenteSelezionato = $(this).find("img").attr("src"); // creo var e copio IMG
@@ -103,7 +108,6 @@ var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
 var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
 
 //FUNZIONI
-
 function invioMessaggio(){
     var nomeInput = $('#mexsent').val(); // prendo il valore dell'INPUT
     if (nomeInput.trim().length > 0) { // trim cancella spazi vuoti se testo del massaggio è maggiore di zero fai parite il messaggio
@@ -132,14 +136,3 @@ function scroll() {
     $('.rig-main.active').scrollTop(pixelScroll); // scrolla degli stessi pixel verso il basso
 
 }
-
-// inizio selezione scheda per contatto
-// creare un indice ad ogni elemento (div che contengono i contatti)
-// al clik sul DIV contenitore
-// creiamo un variabile NOME
-// ciclo con EACH tutti i contenitori dei nomi
-// tutti MAIN delle CHAT oscurati con DISPLAY NONE
-// il nome fa comparire la scheda MAIN con il suo contenuto $ + IF , THIS SHOW
-// inserire DATA ad ogni Contenitore contatto, ci permette di raggiungere tramite chiamata THIS.DATA(nome inserito CAMEL CASE)
-// comprendere ATTR in JS
-// attenzione usare... $document.ON (per osservare tutto l'elemento), scatena la  per mettere la funzione sugli elementi aggiunti
