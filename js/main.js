@@ -1,9 +1,10 @@
 //cambio icona utlizizzando il CSS del messaggio invio // usiamo la concatenazione
 $("#mexsent").focus(function(){ // funzione FOCUS E BLUR solo x INPUT
     $(".form-lat-dx i").toggleClass("fas fa-microphone-alt fas fa-paper-plane"); // selezioni il div e le tue icone, toggle class rimuove un icona e ne inserisce un altra senza FONT AWONSE
-
+    $("#mexsent").toggleClass("border");
 }).blur(function(){
     $(".form-lat-dx i").toggleClass("fas fa-paper-plane fas fa-microphone-alt");
+    $("#mexsent").toggleClass("border");
 });
 
 $(".form-lat-dx").click(function(){ // al click su incona MIC?
@@ -40,8 +41,6 @@ $("#cerca-contatti").keyup(function(event){ //alla pressione accatra un evento
     });
 });
 
-
-
 //FRECCETTE INTERNE MESSAGGI
 $(document).on('mouseenter', '.box-message', function(){ // analizza tutto il documento, ON (accadere di un evento scatena una funzione, dove tra le vorgolette)
     $(this).find(".arrow-message").slideDown();
@@ -51,6 +50,17 @@ $(document).on('mouseleave', '.box-message', function(){
 });
 $(document).on('click', '.box-message', function(){
     $(this).find(".delete-message").slideToggle();
+});
+
+//CANCELLA Messaggio
+
+$(document).on('click', '.del-mess.due', function(){ // mi permette di cancellare anchei messaggi creati
+    var messaggioDaCancellare = $(this).parentsUntil(".rig-main.active"); // seleziono dal div clicckato al figlio di .rig-main (tutto il messaggio)
+    console.log(messaggioDaCancellare);
+    var templateMessaggioVuoto = $('.cancella').clone(); // clono il template vuoto da sovrascrivere OK
+    console.log(templateMessaggioVuoto);
+    $(messaggioDaCancellare).html(templateMessaggioVuoto); // sovrascrivo il messaggio da cancellare con quello vuoto
+
 });
 
 // TASTO CAMPANELLA
@@ -74,34 +84,19 @@ $(".fa-bell, .notif-acti").click(function(){
 
 $('.box-mess').click(function(){ // seleziono click sui contenitore dei contatti
     var utenteSelezionato = $(this).data('codice-utente'); // visto in classe, l'utente è quello selezionato con il suo relativo codice "data"
-    console.log(utenteSelezionato); // log utente
+    var immagineUtenteSelezionato = $(this).find("img").attr("src"); // creo var e copio IMG
+    console.log(immagineUtenteSelezionato);
+    var nomeUtenteSelezionato = $(this).find(".nomi-contatti").text()  // creo var e copio IMG
+    console.log(nomeUtenteSelezionato);
     $('.rig-main').each(function(){ // ciclo su tutti i contenitori di CHAT
         if ($(this).data('codice-utente') == utenteSelezionato) { // se un contenitore combacia
             $('.rig-main').removeClass('active'); // faccio sparire active da tutti i contenitori
             $(this).addClass('active'); // lo aggiungo su quello selezionato (THIS)
+            $(".sched-top-right .icon-user img").attr("src", immagineUtenteSelezionato);
+            $(".sched-top-right .text-princ").text(nomeUtenteSelezionato);
         }
     })
 });
-
-
-
-
-
-
-// faccio sparire active da tutti i contenitori
-// lo aggiungo su quello selezionato (THIS)
-$("box-mess").click(function(){ // seleziono click sui contenitore dei contatti
-    var utenteSelezionato = $(this).data("codiceUtente");   // visto in classe, l'utente è quello selezionato con il suo relativo codice "data"
-    console.log(utenteSelezionato); // log utente
-    $(".rig-main").each(function(){ // ciclo su tutti i contenitori di CHAT
-        if ((this).data("codiceUtente") == utenteSelezionato) { // se un contenitore combacia
-            $(".rig-main").remuveClass("active"); // faccio sparire active da tutti i contenitori
-            $(this).addClass("active"); // lo aggiungo su quello selezionato (THIS)
-        }
-    });
-});
-
-
 
 var today = new Date(); // stringhe per inserire la data
 var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
@@ -113,7 +108,7 @@ function invioMessaggio(){
     var nomeInput = $('#mexsent').val(); // prendo il valore dell'INPUT
     if (nomeInput.trim().length > 0) { // trim cancella spazi vuoti se testo del massaggio è maggiore di zero fai parite il messaggio
         $('#mexsent').val(''); // cancello valore INPUT
-        var templateMessaggio = $('.template .message').clone(); // clono il filgio di template
+        var templateMessaggio = $('.template .message').clone(); // clono il figlio di template
         templateMessaggio.find('.text-mess').text(nomeInput); // scrivo il valore dell INPUT dentro al testo del messaggio
         templateMessaggio.find(".box-message").addClass("sent");
         templateMessaggio.find('.ora-messaggio').text(time); // aggiungo orario all'interno dello spazio relativo
