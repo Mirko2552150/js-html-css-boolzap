@@ -5,6 +5,7 @@
         <title>Boolzap</title>
         <link rel="stylesheet" href="css/style.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.3/handlebars.min.js" charset="utf-8"></script>
         <script src="https://kit.fontawesome.com/e28dfdf91d.js" crossorigin="anonymous"></script>
     </head>
     <body>
@@ -221,30 +222,42 @@
                 </div>
             </div>
         </div>
-
-        <div class="template">
-            <div class="message">
-                <div class="gabbia">
-                    <div class="box-message">
-                        <p class="text-mess"></p>
-                        <div class="ora-messaggio">
-                            18:00
-                        </div>
-                        <div class="arrow-message">
-                            <i class="fas fa-sort-down"></i>
-                            <div class="delete-message">
-                                <div class="del-mess uno">
-                                    <p>Info Messaggio</p>
-                                </div>
-                                <div class="del-mess due">
-                                    <p>Cancella Messaggio</p>
+        <!-- INSERITO IL MIO TEMPLATE NELLO SCRIPT HANDLEBARS -->
+        <script id="template-messaggio" type="text/x-handlebars-template">
+                <div class="message">
+                    <div class="gabbia">
+                        <div class="box-message {{classe}}"> <!-- INSERIMETO LA CLASSE SENT O RECEIVED -->
+                            <p class="text-mess">{{testoMessaggio}}</p> <!-- INSERIREMO LA CLASSE TESTO MESSAGGIO O IL TESTO PRE COMPILATO -->
+                            <div class="ora-messaggio">{{tempo}}</div> <!-- INSERITREMO LA VAR TIME -->
+                            <div class="arrow-message">
+                                <i class="fas fa-sort-down"></i>
+                                <div class="delete-message">
+                                    <div class="del-mess uno">
+                                        <p>Info Messaggio</p>
+                                    </div>
+                                    <div class="del-mess due">
+                                        <p>Cancella Messaggio</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+        </script>
+
+        <!-- TEMPLATE BOX CONTATTI -->
+        <script id="template-contatto" type="text/x-handlebars-template">
+            <div class="box-mess background" data-codice-utente="primo">
+                <div class="mess-left">
+                    <img class="dim-avatats" src="img/avataaars.png" alt="icon avatars">
+                </div>
+                <div class="mess-right">
+                    <p class="text-princ nomi-contatti">Mario</p>
+                    <p class="text-sec">Non poteva essere altrimenti</p>
+                </div>
             </div>
-        </div>
+            </div>
+        </script>
 
         <div class="cancella"></div>
 

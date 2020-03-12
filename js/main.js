@@ -60,7 +60,7 @@ $(document).on('click', '.del-mess.due', function(){ // mi permette di cancellar
     var templateMessaggioVuoto = $('.cancella').clone(); // clono il template vuoto da sovrascrivere OK
     console.log(templateMessaggioVuoto);
     $(messaggioDaCancellare).html(templateMessaggioVuoto); // sovrascrivo il messaggio da cancellare con quello vuoto
-    
+
 });
 
 // TASTO CAMPANELLA
@@ -103,27 +103,40 @@ $('.box-mess').click(function(){ // seleziono click sui contenitore dei contatti
     })
 });
 
+
+// Variabili ora e data
 var today = new Date(); // stringhe per inserire la data
 var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds(); // le inserisco nella funzione x richiarmale
+
+
+//HENDLEBARS
+var source = $("#template-messaggio").html(); // copio il mio TEMPLATE dei messaggi
+var template = Handlebars.compile(source); // scrivo una volta sola sola il mio complitaote di HANDLEBARS
 
 //FUNZIONI
 function invioMessaggio(){
     var nomeInput = $('#mexsent').val(); // prendo il valore dell'INPUT
     if (nomeInput.trim().length > 0) { // trim cancella spazi vuoti se testo del massaggio è maggiore di zero fai parite il messaggio
         $('#mexsent').val(''); // cancello valore INPUT
-        var templateMessaggio = $('.template .message').clone(); // clono il figlio di template
-        templateMessaggio.find('.text-mess').text(nomeInput); // scrivo il valore dell INPUT dentro al testo del messaggio
-        templateMessaggio.find(".box-message").addClass("sent");
-        templateMessaggio.find('.ora-messaggio').text(time); // aggiungo orario all'interno dello spazio relativo
-        $('.rig-main.active').append(templateMessaggio); // inserisco il div messaggio all'interno del MAIN assieme a tutti gli altri
+        var mexInviati = {
+            "testoMessaggio": nomeInput,
+            "tempo": time,
+            "classe": "sent"
+        };
+        console.log(mexInviati);
+        var templatePopolatoSent = template(mexInviati);
+        console.log(templatePopolatoSent);
+        $('.rig-main.active').append(templatePopolatoSent);
         scroll() // infine scrolla verso il basso
         setTimeout(function(){ // il messaggio auto parte dopo 1000 ms
-            var templateMessaggioAuto = $('.template .message').clone(); // clono il figlio di template
-            templateMessaggioAuto.find('.text-mess').text("Ciao! Ora non posso risponderti, ci sentiamo dopo");
-            templateMessaggioAuto.find(".box-message").addClass("received");
-            templateMessaggioAuto.find('.ora-messaggio').text(time);
-            $('.rig-main.active').append(templateMessaggioAuto);
+            var mexRicevuti = {
+                "testoMessaggio": "Ciao! Ora non posso risponderti, ci sentiamo dopo",
+                "tempo": time,
+                "classe": "received"
+            };
+            var templatePopolatoReceived = template(mexRicevuti);            // Popolo il templateUtente con i dati presi dall'oggetto UTENTE
+            $('.rig-main.active').append(templatePopolatoReceived);
             scroll() // infine scrolla verso il basso
         }, 1000);
     } else {
