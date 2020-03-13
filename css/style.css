@@ -207,6 +207,7 @@ linear-gradient(to bottom, #009688 0px, #009688 15vh, #DDDBD1 15vh, #D2DBDC 100%
 }
 
 .lef-up-not {
+    /* NB  */
     width: 409px;
     height: 10%;
     border: 2px solid #c7c7c7;
