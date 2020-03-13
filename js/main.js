@@ -79,7 +79,8 @@ $(".fa-bell, .notif-acti").click(function(){
     $(".notif").show();
 });
 
-$(".box-mess").click(function(){
+//aggiunto document
+$(document).on('click', '.box-mess', function(){
     $(".box-mess").removeClass("background");
     $(this).addClass("background");
 
@@ -87,7 +88,7 @@ $(".box-mess").click(function(){
 
 
 // INIZIO SELEZIONE CONTATTI CON RELATIVI MAIN CHAT
-$('.box-mess').click(function(){ // seleziono click sui contenitore dei contatti
+$(document).on('click', '.box-mess', function(){ // seleziono click sui contenitore dei contatti
     var utenteSelezionato = $(this).data('codice-utente'); // visto in classe, l'utente è quello selezionato con il suo relativo codice "data"
     var immagineUtenteSelezionato = $(this).find("img").attr("src"); // creo var e copio IMG
     console.log(immagineUtenteSelezionato);
@@ -103,16 +104,56 @@ $('.box-mess').click(function(){ // seleziono click sui contenitore dei contatti
     })
 });
 
-
-// Variabili ora e data
 var today = new Date(); // stringhe per inserire la data
 var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds(); // le inserisco nella funzione x richiarmale
+var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+
+////HENDLEBARS TEMPLATE CONTATTI
+var sourceContatto = $("#template-contatto").html(); // copio il mio TEMPLATE dei messaggi
+var templateContatti = Handlebars.compile(sourceContatto); // scrivo una volta sola sola il mio complitaote di HANDLEBARS
+
+var contatti = [
+    {
+        "codediceDataUtente": "primo",
+        "nomeContatto": "Mario",
+        "avatarUtente": "img/avataaars.png"
+    },
+    {
+        "codediceDataUtente": "secondo",
+        "nomeContatto": "Marco",
+        "avatarUtente": "img/avataaars2.png"
+    },
+    {
+        "codediceDataUtente": "terzo",
+        "nomeContatto": "Giovanni",
+        "avatarUtente": "img/avataaars3.png"
+    },
+    {
+        "codediceDataUtente": "quarto",
+        "nomeContatto": "Paolo",
+        "avatarUtente": "img/avataaars4.png"
+    },
+    {
+        "codediceDataUtente": "quinto",
+        "nomeContatto": "Federico",
+        "avatarUtente": "img/avataaars5.png"
+    },
+    {
+        "codediceDataUtente": "sesto",
+        "nomeContatto": "Luca",
+        "avatarUtente": "img/avataaars6.png"
+    },
+];
+
+for (var i = 0; i < contatti.length; i++) {
+    var templatePopolatoUtente = templateContatti(contatti[i]); // Popolo il templateUtente con i dati presi dall'oggetto UTENTE
+    $('.sch-lef-down').append(templatePopolatoUtente);
+};
 
 
-//HENDLEBARS
-var source = $("#template-messaggio").html(); // copio il mio TEMPLATE dei messaggi
-var template = Handlebars.compile(source); // scrivo una volta sola sola il mio complitaote di HANDLEBARS
+//HENDLEBARS TEMPLATE MESSAGGI
+var sourceMessaggio = $("#template-messaggio").html(); // copio il mio TEMPLATE dei messaggi
+var template = Handlebars.compile(sourceMessaggio); // scrivo una volta sola sola il mio complitaote di HANDLEBARS
 
 //FUNZIONI
 function invioMessaggio(){
@@ -129,23 +170,27 @@ function invioMessaggio(){
         console.log(templatePopolatoSent);
         $('.rig-main.active').append(templatePopolatoSent);
         scroll() // infine scrolla verso il basso
-        setTimeout(function(){ // il messaggio auto parte dopo 1000 ms
-            var mexRicevuti = {
-                "testoMessaggio": "Ciao! Ora non posso risponderti, ci sentiamo dopo",
-                "tempo": time,
-                "classe": "received"
-            };
-            var templatePopolatoReceived = template(mexRicevuti);            // Popolo il templateUtente con i dati presi dall'oggetto UTENTE
-            $('.rig-main.active').append(templatePopolatoReceived);
-            scroll() // infine scrolla verso il basso
-        }, 1000);
+        autoMessaggio()
     } else {
         console.log("non hai scritto testo");
     }
+};
+
+function autoMessaggio(){
+    setTimeout(function(){ // il messaggio auto parte dopo 1000 ms
+        var mexRicevuti = {
+            "testoMessaggio": "Ciao! Ora non posso risponderti, ci sentiamo dopo",
+            "tempo": time,
+            "classe": "received"
+        };
+        var templatePopolatoReceived = template(mexRicevuti);            // Popolo il templateUtente con i dati presi dall'oggetto UTENTE
+        $('.rig-main.active').append(templatePopolatoReceived);
+        scroll() // infine scrolla verso il basso
+    }, 1000);
 };
 
 function scroll() {
     var pixelScroll = $('.rig-main.active').height(); // associo var ad altezza DIV messaggi
     $('.rig-main.active').scrollTop(pixelScroll); // scrolla degli stessi pixel verso il basso
 
-}
+};

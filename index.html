@@ -61,126 +61,13 @@
                         </form>
                     </div>
                     <div class="sch-lef-down">
-                        <div class="box-mess background" data-codice-utente="primo">
-                            <div class="mess-left">
-                                <img class="dim-avatats" src="img/avataaars.png" alt="icon avatars">
-                            </div>
-                            <div class="mess-right">
-                                <p class="text-princ nomi-contatti">Mario</p>
-                                <p class="text-sec">Non poteva essere altrimenti</p>
-                            </div>
-                        </div>
-                        <div class="box-mess" data-codice-utente="secondo">
-                            <div class="mess-left">
-                                <img class="dim-avatats" src="img/avataaars2.png" alt="icon avatars">
-                            </div>
-                            <div class="mess-right">
-                                <p class="text-princ nomi-contatti">Marco</p>
-                                <p class="text-sec">Non poteva essere altrimenti</p>
-                            </div>
-                        </div>
-                        <div class="box-mess" data-codice-utente="terzo">
-                            <div class="mess-left">
-                                <img class="dim-avatats" src="img/avataaars3.png" alt="icon avatars">
-                            </div>
-                            <div class="mess-right">
-                                <p class="text-princ nomi-contatti">Giovanni</p>
-                                <p class="text-sec">Non poteva essere altrimenti</p>
-                            </div>
-                        </div>
-                        <div class="box-mess" data-codice-utente="quarto">
-                            <div class="mess-left">
-                                <img class="dim-avatats" src="img/avataaars4.png" alt="icon avatars">
-                            </div>
-                            <div class="mess-right">
-                                <p class="text-princ nomi-contatti">Paolo</p>
-                                <p class="text-sec">Non poteva essere altrimenti</p>
-                            </div>
-                        </div>
-                        <div class="box-mess" data-codice-utente="quinto">
-                            <div class="mess-left">
-                                <img class="dim-avatats" src="img/avataaars5.png" alt="icon avatars">
-                            </div>
-                            <div class="mess-right">
-                                <p class="text-princ nomi-contatti">Federico</p>
-                                <p class="text-sec">Non poteva essere altrimenti</p>
-                            </div>
-                        </div>
-                        <div class="box-mess" data-codice-utente="sesto">
-                            <div class="mess-left">
-                                <img class="dim-avatats" src="img/avataaars6.png" alt="icon avatars">
-                            </div>
-                            <div class="mess-right">
-                                <p class="text-princ nomi-contatti">Luca</p>
-                                <p class="text-sec">Non poteva essere altrimenti</p>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
                 <div class="sched-right">
                     <div class="rig-main active" data-codice-utente="primo">
                         <div class="message">
-                            <div class="gabbia">
-                                <div class="box-message sent">
-                                    <p class="text-mess">Ciao, come stai?</p>
-                                    <div class="ora-messaggio">
-                                        13:00
-                                    </div>
-                                    <div class="arrow-message">
-                                        <i class="fas fa-sort-down"></i>
-                                        <div class="delete-message">
-                                            <div class="del-mess uno">
-                                                <p>Info Messaggio</p>
-                                            </div>
-                                            <div class="del-mess due">
-                                                <p>Cancella Messaggio</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="message">
-                            <div class="gabbia">
-                                <div class="box-message sent">
-                                    <p class="text-mess">Ciao, come stai?</p>
-                                    <div class="ora-messaggio">
-                                        14:00
-                                    </div>
-                                    <div class="arrow-message">
-                                        <i class="fas fa-sort-down"></i>
-                                        <div class="delete-message">
-                                            <div class="del-mess uno">
-                                                <p>Info Messaggio</p>
-                                            </div>
-                                            <div class="del-mess due">
-                                                <p>Cancella Messaggio</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="message">
-                            <div class="gabbia">
-                                <div class="box-message received">
-                                    <p class="text-mess">Ciao, come stai?</p>
-                                    <div class="ora-messaggio">
-                                        18:00
-                                    </div>
-                                    <div class="arrow-message">
-                                        <i class="fas fa-sort-down"></i>
-                                        <div class="delete-message">
-                                            <div class="del-mess uno">
-                                                <p>Info Messaggio</p>
-                                            </div>
-                                            <div class="del-mess due">
-                                                <p>Cancella Messaggio</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <div class="gabbia"></div>
                         </div>
                     </div>
                     <div class="rig-main" data-codice-utente="secondo">
@@ -247,15 +134,14 @@
 
         <!-- TEMPLATE BOX CONTATTI -->
         <script id="template-contatto" type="text/x-handlebars-template">
-            <div class="box-mess background" data-codice-utente="primo">
+            <div class="box-mess" data-codice-utente="{{codediceDataUtente}}">
                 <div class="mess-left">
-                    <img class="dim-avatats" src="img/avataaars.png" alt="icon avatars">
+                    <img class="dim-avatats" src="{{avatarUtente}}" alt="icon avatars">
                 </div>
                 <div class="mess-right">
-                    <p class="text-princ nomi-contatti">Mario</p>
+                    <p class="text-princ nomi-contatti">{{nomeContatto}}</p>
                     <p class="text-sec">Non poteva essere altrimenti</p>
                 </div>
-            </div>
             </div>
         </script>
 
