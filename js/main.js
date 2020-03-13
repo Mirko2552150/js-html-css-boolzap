@@ -86,7 +86,6 @@ $(document).on('click', '.box-mess', function(){
 
 });
 
-
 // INIZIO SELEZIONE CONTATTI CON RELATIVI MAIN CHAT
 $(document).on('click', '.box-mess', function(){ // seleziono click sui contenitore dei contatti
     var utenteSelezionato = $(this).data('codice-utente'); // visto in classe, l'utente è quello selezionato con il suo relativo codice "data"
@@ -114,33 +113,33 @@ var templateContatti = Handlebars.compile(sourceContatto); // scrivo una volta s
 
 var contatti = [
     {
-        "codediceDataUtente": "primo",
-        "nomeContatto": "Mario",
+        "codediceDataUtente": 0,
+        "nomeContatto": "Mario F.",
         "avatarUtente": "img/avataaars.png"
     },
     {
-        "codediceDataUtente": "secondo",
-        "nomeContatto": "Marco",
+        "codediceDataUtente": 1,
+        "nomeContatto": "Marco P.",
         "avatarUtente": "img/avataaars2.png"
     },
     {
-        "codediceDataUtente": "terzo",
-        "nomeContatto": "Giovanni",
+        "codediceDataUtente": 2,
+        "nomeContatto": "Giovanni L.",
         "avatarUtente": "img/avataaars3.png"
     },
     {
-        "codediceDataUtente": "quarto",
-        "nomeContatto": "Paolo",
+        "codediceDataUtente": 3,
+        "nomeContatto": "Paolo G.",
         "avatarUtente": "img/avataaars4.png"
     },
     {
-        "codediceDataUtente": "quinto",
-        "nomeContatto": "Federico",
+        "codediceDataUtente": 4,
+        "nomeContatto": "Federico R.",
         "avatarUtente": "img/avataaars5.png"
     },
     {
-        "codediceDataUtente": "sesto",
-        "nomeContatto": "Luca",
+        "codediceDataUtente": 5,
+        "nomeContatto": "Luca P.",
         "avatarUtente": "img/avataaars6.png"
     },
 ];
@@ -149,7 +148,6 @@ for (var i = 0; i < contatti.length; i++) {
     var templatePopolatoUtente = templateContatti(contatti[i]); // Popolo il templateUtente con i dati presi dall'oggetto UTENTE
     $('.sch-lef-down').append(templatePopolatoUtente);
 };
-
 
 //HENDLEBARS TEMPLATE MESSAGGI
 var sourceMessaggio = $("#template-messaggio").html(); // copio il mio TEMPLATE dei messaggi

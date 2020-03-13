@@ -209,7 +209,7 @@ linear-gradient(to bottom, #009688 0px, #009688 15vh, #DDDBD1 15vh, #D2DBDC 100%
 .lef-up-not {
     width: 409px;
     height: 10%;
-    border: 1px solid #c7c7c7;
+    border: 2px solid #c7c7c7;
     display: none;
     justify-content: center;
     align-items: center;
@@ -253,11 +253,11 @@ linear-gradient(to bottom, #009688 0px, #009688 15vh, #DDDBD1 15vh, #D2DBDC 100%
 .box-mess {
     height: 20%;
     border: 1px solid #cdcdcd;
+    cursor: pointer;
 }
 
 .box-mess:hover {
     background-color: #cdcdcd;
-    cursor: pointer;
 }
 
 .mess-left {
@@ -295,7 +295,7 @@ linear-gradient(to bottom, #009688 0px, #009688 15vh, #DDDBD1 15vh, #D2DBDC 100%
     font-weight: bold;
     position: absolute;
     right: 5px;;
-    color: #c7c7c7;
+    color: #66667a;
 
 }
 
@@ -478,10 +478,6 @@ input[type=testo] {
 .box-message.received {
     background-color: white;
 
-}
-
-.template {
-    display: none;
 }
 
 .message.cancellato .box-message {
